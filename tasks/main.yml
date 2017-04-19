@@ -39,7 +39,7 @@
     name: '{{ item }}'
     state: 'present'
     install_recommends: False
-    dpkg_options: force-downgrade
+    dpkg_options: 'force-downgrade,allow-downgrades'
   with_flattened:
     - '{{ docker__engine_package if docker__upstream|d() else "docker.io" }}'
     - '{{ docker__base_packages }}'
