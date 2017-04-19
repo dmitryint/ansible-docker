@@ -50,6 +50,7 @@ docker__upstream_key: '58118E89F3A912897C070ADBF76221572C52609D'
 # Address of the Docker upstream APT repository.
 docker__upstream_repository: 'deb https://apt.dockerproject.org/repo {{ docker__distribution | lower }}-{{ docker__distribution_release }} main'
 
+docker__engine_package: 'docker-engine'
                                                                    # ]]]
 # .. envvar:: docker__base_packages [[[
 #

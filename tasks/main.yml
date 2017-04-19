@@ -24,7 +24,7 @@
     install_recommends: False
   register: docker__register_other_version_removed
   with_flattened:
-    - '{{ "docker.io" if docker__upstream|d() else "docker-engine" }}'
+    - '{{ "docker.io" if docker__upstream|d() else docker__engine_package }}'
 
 - name: Remove custom systemd startup file if present
   file:
@@ -40,7 +40,7 @@
     state: 'present'
     install_recommends: False
   with_flattened:
-    - '{{ "docker-engine" if docker__upstream|d() else "docker.io" }}'
+    - '{{ docker__engine_package if docker__upstream|d() else "docker.io" }}'
     - '{{ docker__base_packages }}'
     - '{{ docker__packages }}'
 
